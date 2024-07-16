@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int subarraysDivByK(vector<int>& nums, int k) {
+        //method2 hash map***
+        unordered_map<int,int> mpp;
+        mpp[0]=1;
+        int n=nums.size();
+        int prefixsum=0,count=0;
+        for(int i=0;i<n;i++){
+            prefixsum+=nums[i];
+            int mod= prefixsum % k;
+            if(mod<0){
+                mod+=k;
+            }
+            if (mpp.find(mod) != mpp.end()) {
+                count += mpp[mod];
+            }
+            mpp[mod]++;
+        }
+        return count;
+
+         //method1
+        // int count = 0;       //time limit exceeds
+        // int  n =nums.size();
+        // for(int i=0;i<n;i++){
+        //     int sum = 0;
+        //     for(int j=i;j<n;j++){
+        //         sum = sum+nums[j];
+        //         if(sum % k == 0){
+        //             count += 1;
+        //         }
+        //     }
+        // }
+        // return count;
+    }
+};
