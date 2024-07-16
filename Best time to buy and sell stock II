@@ -1,0 +1,13 @@
+int maxProfit(vector<int>& prices) {
+        // int n=prices.size();
+        // int i=0,profit=0,diff;
+        // while(i< (n-1)){
+        //    int j=i+1;
+        //    diff=prices[j]-prices[i];
+        //    if(diff>0){
+        //     profit=profit+diff;
+        //    }
+        //    i++;
+        // }
+        // return profit;
+    }
