@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        //method1(array)
+        // int n=nums.size();
+        // vector<int> ans;
+        // for(int i=0;i<n;i++){
+        //     for(int j=i+1;j<n;j++){
+        //         if(nums[i]+nums[j]==target){
+        //             ans.push_back(i);
+        //             ans.push_back(j);
+        //             return ans;
+        //         }
+        //     }
+        // }
+        // return ans;
+
+        //method2(hash map)
+        int n=nums.size();
+        vector<int> ans;
+        unordered_map<int,int> mpp;
+        for(int i=0;i<n;i++){
+            mpp[nums[i]]=i;
+        }
+        for(int i=0;i<n;i++){
+            int rem=target-nums[i];
+            if(mpp.count(rem)&&mpp[rem]!=i){
+                ans.push_back(i);
+                ans.push_back(mpp[rem]);
+                return ans;
+            }
+        }
+        return {};
+    }
+};
