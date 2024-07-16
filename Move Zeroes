@@ -1,0 +1,38 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        //method1(bruteforce)
+            // int n= nums.size();
+            // vector<int> temp;
+            // int k=0;
+            // for(int i=0;i<n;i++){
+            //     if(nums[i]!=0){
+            //         temp.push_back(nums[i]);
+            //         k++;
+            //     }
+            // }
+            // for(int i=k;i<n;i++){
+            //     temp.push_back(0);
+            // }
+            // nums=temp;
+
+        //method2(two pointer)
+        int i=0;
+        int  j=i+1;
+        int n=nums.size();
+        while(j<n) {
+            if (nums[i]==0 && nums[j]!= 0) {
+                swap(nums[i],nums[j]);
+                i++;
+                j++;
+            } 
+            else if (nums[i]==0 && nums[j]==0) {
+                 j++;
+            } 
+            else{
+                i++;
+                j++;
+            }
+        }
+    }
+};
